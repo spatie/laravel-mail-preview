@@ -12,9 +12,9 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
-        "illuminate/mail": "5.1.* || 5.2.* || 5.3.*",
-        "illuminate/filesystem": "5.1.* || 5.2.* || 5.3.*",
+        "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.*"",
+        "illuminate/mail": "5.1.* || 5.2.* || 5.3.* || 5.4.*"",
+        "illuminate/filesystem": "5.1.* || 5.2.* || 5.3.* || 5.4.*"",
         "mockery/mockery": "~0.9.2"
     },
     "require-dev": {
