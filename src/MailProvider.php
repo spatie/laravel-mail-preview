@@ -30,7 +30,7 @@ class MailProvider extends MailServiceProvider
      */
     private function registerPreviewSwiftMailer()
     {
-        $this->app['swift.mailer'] = $this->app->share(function ($app) {
+        $this->app['swift.mailer'] = $this->app->singleton(function ($app) {
             return new Swift_Mailer(
                 new PreviewTransport(
                     $app->make('Illuminate\Filesystem\Filesystem'),
