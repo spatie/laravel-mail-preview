@@ -2,6 +2,7 @@
     "name": "themsaid/laravel-mail-preview",
     "description": "Adds a 'preview' mail driver for testing emails in laravel.",
     "keywords": ["laravel", "mail"],
+    "type": "laravel-package",
     "homepage": "https://github.com/themsaid/laravel-preview-mail-driver",
     "license": "MIT",
     "authors": [
