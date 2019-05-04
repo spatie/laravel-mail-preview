@@ -31,6 +31,13 @@ class PreviewTransport extends Transport
     private $lifeTime;
 
     /**
+     * Which formats to create previews for.
+     *
+     * @var string[]
+     */
+    protected $formats;
+
+    /**
      * Create a new preview transport instance.
      *
      * @param  \Illuminate\Filesystem\Filesystem $files
@@ -39,11 +46,12 @@ class PreviewTransport extends Transport
      *
      * @return void
      */
-    public function __construct(Filesystem $files, $previewPath, $lifeTime = 60)
+    public function __construct(Filesystem $files, $previewPath, $lifeTime = 60, array $formats = [])
     {
         $this->files = $files;
         $this->previewPath = $previewPath;
         $this->lifeTime = $lifeTime;
+        $this->formats = $formats;
     }
 
     /**
@@ -57,17 +65,33 @@ class PreviewTransport extends Transport
 
         $this->cleanOldPreviews();
 
-        Session::put('mail_preview_path', basename($previewPath = $this->getPreviewFilePath($message)));
+        if ($this->shouldCreateFormat('html')) {
+            Session::put('mail_preview_path', basename($previewPath = $this->getPreviewFilePath($message)));
 
-        $this->files->put(
-            $previewPath.'.html',
-            $this->getHTMLPreviewContent($message)
-        );
+            $this->files->put(
+                $previewPath.'.html',
+                $this->getHTMLPreviewContent($message)
+            );
+        }
 
-        $this->files->put(
-            $previewPath.'.eml',
-            $this->getEMLPreviewContent($message)
-        );
+        if ($this->shouldCreateFormat('eml')) {
+            $this->files->put(
+                $previewPath.'.eml',
+                $this->getEMLPreviewContent($message)
+            );
+        }
+    }
+
+    /**
+     * Whether to create a preview in this format.
+     *
+     * @param  string $format
+     *
+     * @return bool
+     */
+    protected function shouldCreateFormat($format)
+    {
+        return !count($this->formats) || in_array($format, $this->formats);
     }
 
     /**

@@ -35,7 +35,8 @@ class MailProvider extends MailServiceProvider
                 new PreviewTransport(
                     $app->make('Illuminate\Filesystem\Filesystem'),
                     $app['config']['mailpreview.path'],
-                    $app['config']['mailpreview.maximum_lifetime']
+                    $app['config']['mailpreview.maximum_lifetime'],
+                    $app['config']['mailpreview.formats']
                 )
             );
         });
