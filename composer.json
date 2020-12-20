@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "illuminate/support": "^7.0 || ^8.0",
         "illuminate/mail": "^7.0 || ^8.0",
         "illuminate/filesystem": "^7. || ^8.0"
