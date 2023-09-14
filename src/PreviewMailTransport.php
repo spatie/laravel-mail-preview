@@ -76,7 +76,7 @@ class PreviewMailTransport extends AbstractTransport
         $to = '';
 
         /** @var \Symfony\Component\Mime\Address $toAddress */
-        if ($toAddress = $message->getOriginalMessage()->getTo()[0]) {
+        if ($toAddress = ($message->getOriginalMessage()->getTo()[0] ?? null)) {
             $to = str_replace(['@', '.'], ['_at_', '_'], $toAddress->getAddress()) . '_';
         }
 
