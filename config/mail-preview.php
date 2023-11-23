@@ -29,4 +29,11 @@ return [
      * Set this to `false` if the popup should stay visible.
      */
     'popup_timeout_in_seconds' => 8,
+
+    /**
+     * Determines the date format used for the file names.
+     *
+     * The default 'u' stands for microseconds.
+     */
+    'filename_date_format' => 'u',
 ];
