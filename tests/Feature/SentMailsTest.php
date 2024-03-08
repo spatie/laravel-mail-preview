@@ -3,6 +3,7 @@
 namespace Spatie\MailPreview\Tests\Feature;
 
 use Illuminate\Support\Facades\Mail;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\MailPreview\Facades\SentMails;
 use Spatie\MailPreview\SentMails\SentMail;
 use Spatie\MailPreview\Tests\TestCase;
@@ -20,20 +21,20 @@ class SentMailsTest extends TestCase
             ->send(new TestMailable());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_all_mails()
     {
         $this->assertEquals(1, SentMails::count());
         SentMails::assertCount(1);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_that_nothing_was_sent()
     {
         SentMails::reset()->assertNothingSent();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_make_an_assertion_on_the_latest_mail()
     {
         $this->assertTrue(SentMails::lastContains('the html'));
@@ -42,7 +43,7 @@ class SentMailsTest extends TestCase
         SentMails::assertLastContains('the html');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_to_persons_of_a_mail_sent()
     {
         $this->assertTrue(SentMails::last()->hasTo('john@example.com'));
@@ -53,7 +54,7 @@ class SentMailsTest extends TestCase
         SentMails::last()->assertTo('john@example.com');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_cc_persons_of_a_mail_sent()
     {
         $this->assertTrue(SentMails::last()->hasCc('paul@example.com'));
@@ -64,7 +65,7 @@ class SentMailsTest extends TestCase
         SentMails::last()->assertCc('paul@example.com');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_bcc_persons_of_a_mail_sent()
     {
         $this->assertTrue(SentMails::last()->hasBcc('george@example.com'));
@@ -75,7 +76,7 @@ class SentMailsTest extends TestCase
         SentMails::last()->assertBcc('george@example.com');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_the_from_persons_of_a_mail_sent()
     {
         $this->assertTrue(SentMails::last()->hasFrom('ringo@example.com'));
@@ -86,14 +87,14 @@ class SentMailsTest extends TestCase
         SentMails::last()->assertFrom('ringo@example.com');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_the_subject_of_a_mail()
     {
         $this->assertEquals('this is the subject', SentMails::last()->subject());
         SentMails::last()->assertSubjectContains('the subject');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_the_times_a_mail_was_sent()
     {
         $actualCount = SentMails::timesSent(function (SentMail $mail) {
@@ -103,7 +104,7 @@ class SentMailsTest extends TestCase
         $this->assertEquals(1, $actualCount);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_the_times_a_mail_was_sent()
     {
         SentMails::assertSent(function (SentMail $mail) {
@@ -115,7 +116,7 @@ class SentMailsTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_can_assert_the_body_content_for_a_sent_mail()
     {
         SentMails::assertSent(function (SentMail $mail) {
