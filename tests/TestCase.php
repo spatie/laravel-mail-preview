@@ -11,7 +11,7 @@ abstract class TestCase extends Orchestra
 {
     public function setUp(): void
     {
-        ray()->newScreen("Test {$this->getName()}");
+        ray()->newScreen("Test {$this->name()}");
 
         parent::setUp();
 
