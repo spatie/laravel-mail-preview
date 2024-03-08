@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/filesystem": "^11.0",
+        "illuminate/filesystem": "^10.0|^11.0",
         "illuminate/mail": "^10.0|^11.0",
         "illuminate/support": "^10.0|^11.0",
         "spatie/laravel-package-tools": "^1.11"
