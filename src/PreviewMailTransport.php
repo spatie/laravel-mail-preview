@@ -83,7 +83,7 @@ class PreviewMailTransport extends AbstractTransport
         $subject = $message->getOriginalMessage()->getSubject();
         $date = $message->getOriginalMessage()->getDate() ?? now();
 
-        return $this->storagePath() . '/' . Str::slug($date->format('u') . '_' . $to . $subject, '_');
+        return $this->storagePath() . '/' . Str::slug($date->format($this->filenameDateFormat()) . '_' . $to . $subject, '_');
     }
 
     protected function getMessageInfo(SentMessage $message): string
@@ -128,6 +128,11 @@ class PreviewMailTransport extends AbstractTransport
     protected function storagePath(): string
     {
         return config('mail-preview.storage_path');
+    }
+
+    protected function filenameDateFormat(): string
+    {
+        return config('mail-preview.filename_date_format') ?? 'u';
     }
 
     public function __toString(): string
