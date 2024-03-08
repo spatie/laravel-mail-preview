@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-mail-preview` will be documented in this file.
 
+## 6.1.0 - 2024-03-08
+
+### What's Changed
+
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-mail-preview/pull/103
+* Allow to change default filename date format by @ekateiva in https://github.com/spatie/laravel-mail-preview/pull/102
+
+### New Contributors
+
+* @laravel-shift made their first contribution in https://github.com/spatie/laravel-mail-preview/pull/103
+* @ekateiva made their first contribution in https://github.com/spatie/laravel-mail-preview/pull/102
+
+**Full Changelog**: https://github.com/spatie/laravel-mail-preview/compare/6.0.6...6.1.0
+
 ## 6.0.6 - 2023-09-14
 
 ### What's Changed
