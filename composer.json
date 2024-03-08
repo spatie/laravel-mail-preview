@@ -1,7 +1,10 @@
 {
     "name": "spatie/laravel-mail-preview",
     "description": "A mail driver to quickly preview mail",
-    "keywords": ["laravel", "mail"],
+    "keywords": [
+        "laravel",
+        "mail"
+    ],
     "homepage": "https://github.com/themsaid/laravel-preview-mail-driver",
     "license": "MIT",
     "authors": [
@@ -16,13 +19,13 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/filesystem": "^9.0|^10.0",
-        "illuminate/mail": "^9.0|^10.0",
-        "illuminate/support": "^9.0|^10.0",
+        "illuminate/filesystem": "^9.0|^10.0|^11.0",
+        "illuminate/mail": "^9.0|^10.0|^11.0",
+        "illuminate/support": "^9.0|^10.0|^11.0",
         "spatie/laravel-package-tools": "^1.11"
     },
     "require-dev": {
-        "orchestra/testbench": "^7.0|^8.0",
+        "orchestra/testbench": "^7.0|^8.0|^9.0",
         "spatie/ray": "^1.27"
     },
     "autoload": {
