@@ -15,6 +15,8 @@ class SentMailsTest extends TestCase
     {
         parent::setUp();
 
+        config()->set('mail.default', 'smtp');
+
         Mail::to('john@example.com')
             ->cc('paul@example.com')
             ->bcc('george@example.com')

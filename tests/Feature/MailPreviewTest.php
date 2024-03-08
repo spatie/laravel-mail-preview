@@ -13,6 +13,8 @@ class MailPreviewTest extends TestCase
     #[Test]
     public function it_will_write_sent_mails_to_disk()
     {
+        config()->set('mail.default', 'smtp');
+
         Mail::to('john@example.com')->send(new TestMailable());
 
         $sentMail = SentMails::last();
