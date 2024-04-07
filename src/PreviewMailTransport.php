@@ -102,7 +102,7 @@ class PreviewMailTransport extends AbstractTransport
 
     protected function extractAddresses(array $addresses): array
     {
-        return array_map(function(Address $address) {
+        return array_map(function (Address $address) {
             return $address->getAddress();
         }, $addresses);
     }
