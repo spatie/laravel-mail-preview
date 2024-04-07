@@ -11,6 +11,7 @@ use Spatie\MailPreview\SentMails\SentMails;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\MessageConverter;
 
 class PreviewMailTransport extends AbstractTransport
@@ -75,7 +76,7 @@ class PreviewMailTransport extends AbstractTransport
     {
         $to = '';
 
-        /** @var \Symfony\Component\Mime\Address $toAddress */
+        /** @var Address $toAddress */
         if ($toAddress = ($message->getOriginalMessage()->getTo()[0] ?? null)) {
             $to = str_replace(['@', '.'], ['_at_', '_'], $toAddress->getAddress()) . '_';
         }
@@ -90,13 +91,20 @@ class PreviewMailTransport extends AbstractTransport
     {
         return sprintf(
             "<!--\nFrom:%s, \nto:%s, \nreply-to:%s, \ncc:%s, \nbcc:%s, \nsubject:%s\n-->\n",
-            json_encode($message->getOriginalMessage()->getFrom()),
-            json_encode($message->getOriginalMessage()->getTo()),
-            json_encode($message->getOriginalMessage()->getReplyTo()),
-            json_encode($message->getOriginalMessage()->getCc()),
-            json_encode($message->getOriginalMessage()->getBcc()),
+            json_encode($this->extractAddresses($message->getOriginalMessage()->getFrom())),
+            json_encode($this->extractAddresses($message->getOriginalMessage()->getTo())),
+            json_encode($this->extractAddresses($message->getOriginalMessage()->getReplyTo())),
+            json_encode($this->extractAddresses($message->getOriginalMessage()->getCc())),
+            json_encode($this->extractAddresses($message->getOriginalMessage()->getBcc())),
             $message->getOriginalMessage()->getSubject(),
         );
+    }
+
+    protected function extractAddresses(array $addresses): array
+    {
+        return array_map(function(Address $address) {
+            return $address->getAddress();
+        }, $addresses);
     }
 
     protected function ensureEmailPreviewDirectoryExists(): self
