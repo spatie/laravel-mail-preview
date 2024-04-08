@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-mail-preview` will be documented in this file.
 
+## v4.0.1 - 2024-04-08
+
+### What's Changed
+
+* Convert symfony Addresses to jsonable email adresses for the .html preview by @rudiedirkx in https://github.com/spatie/laravel-mail-preview/pull/104
+
+### New Contributors
+
+* @rudiedirkx made their first contribution in https://github.com/spatie/laravel-mail-preview/pull/104
+
+**Full Changelog**: https://github.com/spatie/laravel-mail-preview/compare/6.1.0...v4.0.1
+
 ## 6.1.0 - 2024-03-08
 
 ### What's Changed
