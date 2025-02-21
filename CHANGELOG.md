@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-mail-preview` will be documented in this file.
 
+## 6.2.1 - 2025-02-21
+
+### What's Changed
+
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-mail-preview/pull/106
+
+**Full Changelog**: https://github.com/spatie/laravel-mail-preview/compare/6.2.0...6.2.1
+
 ## 6.2.0 - 2024-04-22
 
 ### What's Changed
