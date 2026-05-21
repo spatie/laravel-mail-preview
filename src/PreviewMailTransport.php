@@ -140,7 +140,7 @@ class PreviewMailTransport extends AbstractTransport
 
     protected function filenameDateFormat(): string
     {
-        return config('mail-preview.filename_date_format') ?? 'u';
+        return config('mail-preview.filename_date_format') ?? 'Uu';
     }
 
     public function __toString(): string

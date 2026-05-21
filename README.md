@@ -120,9 +120,9 @@ return [
     /**
      * Determines the date format used for the file names.
      *
-     * The default 'u' stands for microseconds.
+     * The default 'Uu' stands for seconds since Unix Epoch with microseconds.
      */
-    'filename_date_format' => 'u',
+    'filename_date_format' => 'Uu',
 ];
 
 ```
