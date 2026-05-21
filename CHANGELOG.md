@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-mail-preview` will be documented in this file.
 
+## 6.2.3 - 2026-05-21
+
+### What's Changed
+
+* add 'U' to default date format to prevent issue when multiple mails s… by @tom-knight in https://github.com/spatie/laravel-mail-preview/pull/109
+
+### New Contributors
+
+* @tom-knight made their first contribution in https://github.com/spatie/laravel-mail-preview/pull/109
+
+**Full Changelog**: https://github.com/spatie/laravel-mail-preview/compare/6.2.2...6.2.3
+
 ## 6.2.2 - 2026-02-23
 
 ### What's Changed
