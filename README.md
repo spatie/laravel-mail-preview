@@ -14,7 +14,7 @@ This can be handy when testing out emails in a local environment.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-mail-preview.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-mail-preview)
+[<img src="https://spatie.be/github-ad-image/laravel-mail-preview.jpg" width="419px" />](https://spatie.be/github-ad-click/laravel-mail-preview)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
