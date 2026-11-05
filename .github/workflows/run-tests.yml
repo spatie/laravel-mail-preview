@@ -12,8 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        php: ['8.2', '8.3', '8.4', '8.5']
-        laravel: ['10.*', '11.*', '12.*', '13.*']
+        php: ['8.2', '8.3', '8.4', '8.5', '8.6']
+        # All Laravel 10 and 11 releases are blocked by Composer security advisories.
+        laravel: ['12.*', '13.*']
         dependency-version: [prefer-stable]
         exclude:
           - laravel: 13.*
@@ -30,6 +31,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          tools: composer:v2
           coverage: none
 
       - name: Install dependencies
