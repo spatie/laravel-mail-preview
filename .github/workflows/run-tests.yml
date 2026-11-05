@@ -19,6 +19,9 @@ jobs:
         exclude:
           - laravel: 13.*
             php: '8.2'
+          # Laravel 12's session handler lacks create_sid(), required by PHP 8.6.
+          - laravel: 12.*
+            php: '8.6'
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
